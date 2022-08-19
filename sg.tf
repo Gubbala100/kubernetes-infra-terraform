@@ -1,5 +1,5 @@
 resource "aws_security_group" "allow_myip" {
-  name        = "Symfonyapp-Inbound-Rules"
+  name        = "symfonyapp_SG_Inboundrules"
   description = "Allow My IP inbound traffic"
 
   ingress {
