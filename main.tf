@@ -4,6 +4,7 @@ resource "aws_instance" "webapp" {
   ami             = data.aws_ami.ubuntu.id
   instance_type   = var.instancetype
   security_groups = var.security_groupid
+  key_name      = aws_key_pair.k8s_key.key_name
   tags = {
     Name        = var.servername[count.index]
     Environment = var.environment
