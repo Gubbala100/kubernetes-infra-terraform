@@ -1,6 +1,6 @@
 variable "instancetype" {
   type    = string
-  default = "t2.small"
+  default = "t2.medium"
 }
 
 variable "instance_count" {
