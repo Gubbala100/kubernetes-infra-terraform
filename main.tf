@@ -1,13 +1,23 @@
-resource "aws_instance" "webapp" {
-
-  count           = var.instance_count
+resource "aws_instance" "master_instance" {
+  count           = var.masterinstance_count
   ami             = data.aws_ami.ubuntu.id
-  instance_type   = var.instancetype
-  security_groups = var.security_groupid
+  instance_type   = var.masterinstancetype
+  security_groups = var.master_security_groupid
   key_name      = aws_key_pair.k8s_key.key_name
   tags = {
-    Name        = var.servername[count.index]
+    Name        = var.masterservername[count.index]
     Environment = var.environment
   }
-  # user_data = element(data.template_file.install.*.rendered, count.index)
+}
+
+resource "aws_instance" "worker_instance" {
+  count           = var.workerinstance_count
+  ami             = data.aws_ami.ubuntu.id
+  instance_type   = var.workerinstancetype
+  security_groups = var.worker_security_groupid
+  key_name      = aws_key_pair.k8s_key.key_name
+  tags = {
+    Name        = var.workerservername[count.index]
+    Environment = var.environment
+  }
 }

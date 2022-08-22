@@ -13,8 +13,3 @@ data "aws_ami" "ubuntu" {
 
   owners = ["099720109477"] # Canonical
 }
-
-# data "template_file" "install" {
-#   count    = length(var.servername)
-#   template = file("scripts/${element(var.servername, count.index)}")
-# }

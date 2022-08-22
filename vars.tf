@@ -1,11 +1,21 @@
-variable "instancetype" {
+variable "masterinstancetype" {
   type    = string
   default = "t2.medium"
 }
 
-variable "instance_count" {
+variable "workerinstancetype" {
+  type    = string
+  default = "t2.medium"
+}
+
+variable "masterinstance_count" {
   type    = number
-  default = "3"
+  default = "1"
+}
+
+variable "workerinstance_count" {
+  type    = number
+  default = "2"
 }
 
 variable "Aws_Region" {
@@ -33,13 +43,25 @@ variable "publickey" {
   default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDOj4ll7EcijlwwqyfYTTKR6jpmG3I7SMOwEyikMSQR/1sAfILDU9aMfQewXIIyLoQiFkCxEXYSJzv+i6gd8lU/U3yYTWDBUsNOf5nC4foCuwtOAdfcATQSzg6TK1V03DtyXcUAr1KzsgqcSeAtKgRtga5ZQaY/wynWxbh0099Bpv65rmWSPODu7B+eizmFWMeR49J4502bdPDSpz5E2nJ7jXQN671ZcNNI4/h4/04xPM7aOEyZ0+UxQlRPKT03qlUVjvqz9TCU03ThMWhVrmtLxEhL/N5gkM+PJkwyoHgm3SJHc6IczPbHhkg5Bv3op0jEL5sSeZQvtJvPP3cTNU6gOpiOIF6dVFWpRXKV4imtMbYeKQcycAlFeT8QNBW8dGDaKld9B/zHXJZVMnbBl93fUHQPOvHVXgMYd4frIix/T7xC+LXDi9ZI74ghHcj/XUTCMVdYpw9POBRJAq0BUUgK/JR3zc3SW5QT9VYVvmkWBdS/h03J+Ciwl7ptIdbsIQveEyBr/UDqXjqZ47bl7X3vmSjdxkySIJH6WctKAD/TmeVuNgId+fAnXzExFQ2ebC2l05HpVENkIhVzcEolhwaE6UiUn/4v7CR3/9+rYWivhyEj5mexoyi/1lxYL+9Uy9ySSxX8tWtrMNtr+KNb1ovhSCZ8Uuh8y4U2as1t04tgTQ== jaggu199@gmail.com"
 }
 
-variable "servername" {
+variable "masterservername" {
   description = "Names Of the EC2 Instances"
   type        = list(string)
-  default     = ["master", "worker1", "worker2"]
+  default     = ["master1"]
 }
 
-variable "security_groupid" {
+variable "workerservername" {
+  description = "Names Of the EC2 Instances"
+  type        = list(string)
+  default     = ["worker1", "worker2"]
+}
+
+variable "master_security_groupid" {
+  description = "Names Of the Security Group"
+  type        = list(string)
+  default     = ["symfonyapp_SG_Inboundrules", "k8master_inbound"]
+}
+
+variable "worker_security_groupid" {
   description = "Names Of the Security Group"
   type        = list(string)
   default     = ["symfonyapp_SG_Inboundrules"]

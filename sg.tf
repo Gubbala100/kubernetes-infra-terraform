@@ -45,3 +45,19 @@ resource "aws_security_group" "allow_myip" {
     Name = "lendinvest_Tech_SG"
   }
 }
+
+resource "aws_security_group" "masterport" {
+  name        = "k8master_inbound"
+  description = "Allow cluster inbound traffic"
+
+  ingress {
+    description = "k8cluster inbound to master"
+    from_port   = 6443
+    to_port     = 6443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+    tags = {
+    Name = "k8master-sg"
+  }
+}
