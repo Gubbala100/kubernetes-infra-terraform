@@ -10,6 +10,14 @@ resource "aws_security_group" "allow_myip" {
     cidr_blocks = ["80.208.218.141/32"]
   }
 
+    ingress {
+    description = "Expose Application Port"
+    from_port   = 30060
+    to_port     = 30060
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   ingress {
     description = "Expose Port 80"
     from_port   = 80
