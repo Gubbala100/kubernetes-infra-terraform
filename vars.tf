@@ -5,7 +5,7 @@ variable "masterinstancetype" {
 
 variable "workerinstancetype" {
   type    = string
-  default = "t2.medium"
+  default = "t2.micro"
 }
 
 variable "masterinstance_count" {
@@ -15,7 +15,7 @@ variable "masterinstance_count" {
 
 variable "workerinstance_count" {
   type    = number
-  default = "2"
+  default = "0"
 }
 
 variable "Aws_Region" {
@@ -40,7 +40,7 @@ variable "keyname" {
 
 variable "publickey" {
   type    = string
-  default = USE YOUR OWN PUBLIC KEY
+  default = ""
 }
 
 variable "masterservername" {
