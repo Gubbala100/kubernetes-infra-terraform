@@ -1,5 +1,5 @@
 resource "aws_security_group" "allow_myip" {
-  name        = "symfonyapp_SG_Inboundrules"
+  name        = "k8scluster_SG_Inboundrules"
   description = "Allow My IP inbound traffic"
 
   ingress {
@@ -7,7 +7,7 @@ resource "aws_security_group" "allow_myip" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["80.208.218.141/32"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
     ingress {
@@ -42,7 +42,7 @@ resource "aws_security_group" "allow_myip" {
   }
 
   tags = {
-    Name = "lendinvest_Tech_SG"
+    Name = "k8scluster_SG"
   }
 }
 

@@ -58,11 +58,11 @@ variable "workerservername" {
 variable "master_security_groupid" {
   description = "Names Of the Security Group"
   type        = list(string)
-  default     = ["symfonyapp_SG_Inboundrules", "k8master_inbound"]
+  default     = ["k8scluster_SG_Inboundrules", "k8master_inbound"]
 }
 
 variable "worker_security_groupid" {
   description = "Names Of the Security Group"
   type        = list(string)
-  default     = ["symfonyapp_SG_Inboundrules"]
+  default     = ["k8scluster_SG_Inboundrules"]
 }
