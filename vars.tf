@@ -15,7 +15,7 @@ variable "masterinstance_count" {
 
 variable "workerinstance_count" {
   type    = number
-  default = "0"
+  default = "2"
 }
 
 variable "Aws_Region" {
