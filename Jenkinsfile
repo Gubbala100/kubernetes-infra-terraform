@@ -25,19 +25,3 @@ pipeline {
         }
     }    
 }
-
-// pipeline {
-//     agent any
-//     stages {
-//         stage('Destroy Infrastructure') {
-//             steps {
-//                 sh "terraform destroy -auto-approve"
-//             }
-//         }
-//         stage('Delete k8sinfra') {
-//             steps {
-//                 cleanWs()
-//             }
-//         }
-//     }
-// }
